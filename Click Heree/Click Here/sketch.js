@@ -372,6 +372,8 @@ function setup() {
   deleteComponentButton();
   createReevaluateButton();
   createHighLowConstantButtons();
+
+
 }
 
 function draw() {
@@ -380,6 +382,25 @@ function draw() {
   textSize(32);
   text("LOGIC SIM", (windowWidth - 50) / 2, 15);
   image(onStateImg, 1665, yOffset + 5, 75, 75);
+
+  infoBbutton = createButton('More Info');   
+  infoBbutton.size(130,30)
+  infoBbutton.position(windowWidth - 50-135, 10);
+  infoBbutton.style('font-size','25px')
+  infoBbutton.style('border-width', '3px');
+  infoBbutton.mousePressed(openWeb)
+  function openWeb(){
+    window.open("https://www.geeksforgeeks.org/logic-gates/")
+  }
+  helpBbutton = createButton('Help');   
+  helpBbutton.size(130,30)
+  helpBbutton.position(windowWidth - 50-135, 50);
+  helpBbutton.style('font-size','20px')
+  helpBbutton.style('border-width', '3px');
+  helpBbutton.mousePressed(openHelp)
+  function openHelp(){
+    window.open("https://dariendcosta.wixsite.com/my-site-4")
+  }
 
   for (let i = 0; i < components.length; i++) {
     components[i].display();
@@ -778,7 +799,7 @@ function bnames() {
   textAlign(CENTER, CENTER);
   const buttonNames = [
     'AND Gate', 'NAND Gate', 'NOR Gate', 'NOT Gate', 'XOR Gate',
-    'XNOR Gate', 'OR Gate', 'Low Constant', 'High Constant', 'Off Bulb', 'Bin'
+    'XNOR Gate', 'OR Gate', 'Low Constant', 'High Constant', 'Off Bulb'
   ];
   for (let i = 0; i < buttonNames.length; i++) {
     text(buttonNames[i], 100 + i * 200, yOffset - 5);
